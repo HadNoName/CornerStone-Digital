@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Cornerstone Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: Poppins;
+    background: #0f172a;
+    color: white;
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    padding:15px;
+    background:#0b1220;
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+}
+
+nav a:hover {
+    color:#22c55e;
+}
+
+/* SECTIONS */
+section {
+    max-width: 1000px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+h1, h2 {
+    font-family: Cinzel;
+    color:#22c55e;
+}
+
+/* CARD */
+.card {
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+    margin-top:20px;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background:#27364d;
+}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+@media(max-width:768px){
+    .grid { grid-template-columns:1fr; }
+}
+
+/* FORM */
+input, textarea {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:8px;
+    border:none;
+    outline:none;
+}
+
+button {
+    margin-top:10px;
+    padding:12px 20px;
+    background:#22c55e;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover {
+    background:#16a34a;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:80px 20px 30px;
+}
+
+.hero p {
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* SMALL BADGE */
+.badge {
+    display:inline-block;
+    background:#16a34a;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <span class="badge">Fast Response • Professional Service</span>
+    <h1>Let’s Build Something Powerful</h1>
+
+    <p>
+        Whether you need a brand new website, a redesign, or help growing your online presence —
+        we’re here to help you turn your idea into a fully working digital business.
+    </p>
+</section>
+
+<!-- CONTACT INFO -->
+<section>
+    <h2>Contact Details</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Email</h3>
+            <p>chanmarais847@gmail.com</p>
+        </div>
+
+        <div class="card">
+            <h3>WhatsApp</h3>
+            <p>063 693 3391</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CONTACT US -->
+<section>
+    <h2>Why Contact Cornerstone Digital?</h2>
+
+    <div class="card">
+        We don’t just build websites — we build tools that help businesses get real customers online.
+    </div>
+
+    <div class="card">
+        ✔ Clean modern design that builds trust instantly<br>
+        ✔ Mobile-friendly websites for all devices<br>
+        ✔ SEO-ready structure to help you get found on Google<br>
+        ✔ Fast delivery and clear communication
+    </div>
+
+    <div class="card">
+        We respond quickly and guide you through the entire process from idea to launch.
+    </div>
+</section>
+
+<!-- FORM -->
+<section>
+    <h2>Send a Message</h2>
+
+    <div class="card">
+        <form action="https://formspree.io/f/mrevlbkz" method="POST">
+
+            <input name="name" placeholder="Your Name" required>
+
+            <input name="email" type="email" placeholder="Your Email" required>
+
+            <textarea name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+
+            <button type="submit">Send Message</button>
+
+        </form>
+    </div>
+</section>
+
+<!-- RESPONSE TIME -->
+<section>
+    <div class="card">
+        <h2>Response Time</h2>
+        <p>
+            We usually respond within <strong>12–24 hours</strong>.  
+            For urgent projects, WhatsApp is the fastest way to reach us.
+        </p>
+    </div>
+</section>
+
+</body>
+</html>

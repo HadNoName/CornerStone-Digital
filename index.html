@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cornerstone Digital | Affordable Web Design for Small Businesses</title>
+
+<!-- SEO -->
+<meta name="description" content="Cornerstone Digital builds modern, SEO-optimised websites for small businesses worldwide. Helping businesses grow through professional web design.">
+<meta name="keywords" content="web design, website designer, small business websites, affordable web design, SEO websites, Cornerstone Digital">
+<meta name="author" content="Cornerstone Digital">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Cornerstone Digital | Web Design for Small Businesses">
+<meta property="og:description" content="Professional websites that help businesses grow online.">
+<meta property="og:type" content="website">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15,23,42,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #22c55e;
+}
+
+/* Hero */
+header {
+    padding: 160px 20px 120px;
+    text-align: center;
+    background:
+        linear-gradient(rgba(15,23,42,0.80), rgba(15,23,42,0.80)),
+        url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    animation: fadeIn 1.2s ease;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    animation: slideUp 1s ease;
+}
+
+header p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 20px;
+    color: #cbd5e1;
+    line-height: 1.7;
+    animation: fadeIn 1.8s ease;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 28px;
+    background: #22c55e;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background: #16a34a;
+}
+
+/* Sections */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    color: #22c55e;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+/* Cards */
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: #27364d;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 42px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+}
+
+/* WhatsApp Button */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 14px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.whatsapp:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#about">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<header>
+    <h1>Cornerstone Digital</h1>
+
+    <p>
+        We build modern, SEO-optimised websites that help small businesses
+        establish credibility, attract more customers, and grow online.
+        Every website is designed with performance, professionalism,
+        and long-term success in mind.
+    </p>
+
+    <a class="btn" href="contact.html">
+        Get Your Free Quote
+    </a>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2>What We Do</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Modern Web Design</h3>
+            <p>We create clean, fast, and conversion-focused websites designed to turn visitors into customers.</p>
+        </div>
+
+        <div class="card">
+            <h3>Mobile Optimisation</h3>
+            <p>Your website will look perfect on phones, tablets, and desktops for maximum reach.</p>
+        </div>
+
+        <div class="card">
+            <h3>SEO Setup</h3>
+            <p>We structure your website so it can be found on Google and rank higher over time.</p>
+        </div>
+
+        <div class="card">
+            <h3>Business Branding</h3>
+            <p>We help shape your online identity with consistent design and professional presentation.</p>
+        </div>
+    </div>
+</section>
+
+<!-- DEMO WEBSITE -->
+<section id="demo">
+    <h2>Example Project</h2>
+
+    <div class="card">
+        <h3>Live Demo Website Preview</h3>
+
+        <div style="
+            height:500px;
+            overflow-y:scroll;
+            border-radius:12px;
+            margin-top:20px;
+            background:#f8fafc;
+            color:#0f172a;
+            border:1px solid #334155;
+        ">
+
+            <div style="font-family:Arial;">
+
+                <div style="
+                    text-align:center;
+                    padding:50px;
+                    background:linear-gradient(135deg,#0ea5e9,#22c55e);
+                    color:white;
+                ">
+                    <h1>Demo Website</h1>
+                    <p>Service Business Layout Example</p>
+
+                    <button style="
+                        padding:10px 20px;
+                        background:white;
+                        border:none;
+                        border-radius:8px;
+                        font-weight:bold;
+                    ">
+                        Call Now
+                    </button>
+                </div>
+
+                <div style="padding:15px; background:#fff7ed; color:#7c2d12;">
+                    ⚡ This demo is only an example — not the limit of what we can build.
+                    Every website is fully custom and tailored to your business needs.
+                </div>
+
+                <div style="padding:20px;">
+                    <h3>Services Section</h3>
+                    <ul>
+                        <li>Leak Repairs</li>
+                        <li>Installations</li>
+                        <li>Emergency Callouts</li>
+                        <li>Bathroom Renovations</li>
+                    </ul>
+                </div>
+
+                <div style="padding:20px;">
+                    <h3>What We Can Add</h3>
+                    <p>
+                        Booking systems, e-commerce stores, SEO optimisation,
+                        automation tools, custom branding, and advanced features.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <p style="margin-top:10px; color:#cbd5e1;">
+            This demo shows layout, structure, and design quality.
+        </p>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+    <h2>Pricing Packages</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Starter</h3>
+            <p>1–3 page website, mobile-friendly design, basic SEO setup.</p>
+        </div>
+
+        <div class="card">
+            <h3>Growth</h3>
+            <p>Up to 5 pages, WhatsApp integration, SEO optimisation, animations.</p>
+        </div>
+
+        <div class="card">
+            <h3>Premium</h3>
+            <p>Full custom website, booking system, automation, advanced features.</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <h2>Client Feedback</h2>
+
+    <div class="card">
+        “Professional, clean design that helped our business look modern and trustworthy.”
+    </div>
+
+    <div class="card">
+        “Excellent communication and fast delivery. Highly recommended.”
+    </div>
+
+    <div class="card">
+        “Our website now brings in real customer enquiries every week.”
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Cornerstone Digital</h2>
+
+    <div class="card">
+        Cornerstone Digital is a web design studio focused on helping small businesses build strong, professional online identities.
+    </div>
+
+    <div class="card">
+        We believe a website is more than just design — it is a digital storefront that builds trust before a customer even contacts you.
+    </div>
+
+    <div class="card">
+        Every project is custom-built with attention to detail, performance, SEO structure, and user experience.
+    </div>
+
+    <div class="card">
+        Our goal is simple: help businesses grow online through strong design, clear messaging, and effective digital strategy.
+    </div>
+</section>
+
+<!-- CONTACT PREVIEW -->
+<section>
+    <h2>Get Started</h2>
+
+    <div class="card">
+        Ready to build your website? Contact us today for a free consultation and quote.
+        <br><br>
+        <a class="btn" href="contact.html">Contact Page →</a>
+    </div>
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<a class="whatsapp" href="https://wa.me/27636933391" target="_blank">
+    WhatsApp
+</a>
+
+<footer style="
+    text-align:center;
+    padding:40px 20px;
+    background:#0b1220;
+    color:#94a3b8;
+    margin-top:60px;
+">
+    <p style="margin:0;">
+        © 2026 Cornerstone Digital. All rights reserved.
+    </p>
+
+    <p style="margin-top:10px; font-size:14px;">
+        Building strong digital foundations for businesses worldwide.
+    </p>
+</footer>
+
+</body>
+</html>
