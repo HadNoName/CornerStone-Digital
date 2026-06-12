@@ -46,7 +46,7 @@ h1, h2 {
 
 .card {
     background:#1e293b;
-    padding:20px;
+    padding:22px;
     border-radius:12px;
     margin-top:20px;
     transition:0.3s;
@@ -63,8 +63,100 @@ h1, h2 {
     gap:20px;
 }
 
+.price {
+    color:#22c55e;
+    font-weight:bold;
+    margin-top:12px;
+    font-size:18px;
+}
+
+.add-btn {
+    margin-top:12px;
+    padding:10px 14px;
+    background:#22c55e;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.add-btn:hover {
+    background:#16a34a;
+}
+
+/* CART */
+.cart-btn {
+    position:fixed;
+    top:15px;
+    right:15px;
+    background:#22c55e;
+    padding:12px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    z-index:2000;
+}
+
+.cart {
+    position:fixed;
+    right:0;
+    top:0;
+    width:360px;
+    height:100%;
+    background:#0b1220;
+    padding:20px;
+    overflow-y:auto;
+    display:none;
+    z-index:3000;
+}
+
+.cart-item {
+    background:#1e293b;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+.close {
+    float:right;
+    cursor:pointer;
+    color:#ef4444;
+    font-weight:bold;
+}
+
+.total {
+    margin-top:15px;
+    font-size:18px;
+    color:#22c55e;
+}
+
+input, select {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:none;
+}
+
+.send-btn {
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#22c55e;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.send-btn:hover {
+    background:#16a34a;
+}
+
 @media(max-width:768px){
     .grid { grid-template-columns:1fr; }
+    .cart { width:100%; }
 }
 </style>
 </head>
@@ -77,104 +169,307 @@ h1, h2 {
     <a href="contact.html">Contact</a>
 </nav>
 
-<section>
-    <h1>Our Services</h1>
+<!-- CART BUTTON -->
+<div class="cart-btn" onclick="toggleCart()">
+🛒 Cart (<span id="count">0</span>)
+</div>
 
-    <div class="card">
-        Cornerstone Digital provides professional web design solutions that help businesses build trust, attract customers, and grow online.
+<div class="cart" id="cart">
+
+    <span class="close" onclick="toggleCart()">X</span>
+
+    <h3>Your Selected Services</h3>
+
+    <div id="items"></div>
+
+    <div class="total">
+        Total: R<span id="total">0</span>
     </div>
+
+    <!-- ✅ FIXED FORMSPREE -->
+    <form id="quoteForm" action="https://formspree.io/f/mrevlbkz" method="POST">
+
+        <input type="email" name="email" required placeholder="Enter email">
+
+        <input type="hidden" name="quote" id="quoteData">
+
+        <button class="send-btn" type="submit">Send via Email</button>
+
+    </form>
+
+    <button class="send-btn" onclick="sendWhatsApp()">Send via WhatsApp</button>
+</div>
+
+<!-- AI QUIZ -->
+<section>
+<h2>AI Recommendation Quiz</h2>
+
+<div class="card">
+
+<label>Business Size</label>
+<select id="q1">
+<option value="small">Small</option>
+<option value="growing">Growing</option>
+<option value="established">Established</option>
+</select>
+
+<label>Pages Needed</label>
+<select id="q2">
+<option value="1">1 Page</option>
+<option value="2">2–3 Pages</option>
+<option value="4">4+ Pages</option>
+</select>
+
+<label>Branding Needed</label>
+<select id="q3">
+<option value="no">No</option>
+<option value="basic">Basic</option>
+<option value="full">Full Branding</option>
+</select>
+
+<label>Monthly Support</label>
+<select id="q4">
+<option value="no">No</option>
+<option value="basic">Basic Hosting</option>
+<option value="full">Website Care</option>
+</select>
+
+<button class="send-btn" onclick="generatePlan()">Generate Recommendation</button>
+
+<div id="quizResult" style="margin-top:10px;color:#22c55e;font-weight:bold;"></div>
+
+</div>
 </section>
 
-<!-- SERVICES GRID -->
+<!-- WEBSITE PACKAGES -->
 <section>
-    <h2>What We Offer</h2>
+<h2>Website Packages</h2>
 
-    <div class="grid">
+<div class="grid">
 
-        <div class="card">
-            <h3>Website Design</h3>
-            We create modern, responsive websites that look professional and work on all devices.
-        </div>
+<div class="card">
+<h3>1 Page Website</h3>
+<p>Perfect for small businesses that need a simple online presence to generate quick enquiries.</p>
+<div class="price">R2,500</div>
+<button class="add-btn" onclick="add('1 Page Website',2500)">Add to Cart</button>
+</div>
 
-        <div class="card">
-            <h3>SEO Optimisation</h3>
-            We structure your website so it can be found on Google and rank for relevant searches.
-        </div>
+<div class="card">
+<h3>2 Page Website</h3>
+<p>Ideal for businesses that need a Home + Services or About structure for better clarity.</p>
+<div class="price">R3,500</div>
+<button class="add-btn" onclick="add('2 Page Website',3500)">Add to Cart</button>
+</div>
 
-        <div class="card">
-            <h3>Business Branding</h3>
-            We design consistent visual identities that help your business look trustworthy and established.
-        </div>
+<div class="card">
+<h3>3 Page Website</h3>
+<p>A stronger starter website that builds trust and improves Google visibility.</p>
+<div class="price">R4,500</div>
+<button class="add-btn" onclick="add('3 Page Website',4500)">Add to Cart</button>
+</div>
 
-        <div class="card">
-            <h3>Custom Features</h3>
-            Booking systems, contact forms, WhatsApp integration, and business automation tools.
-        </div>
+<div class="card">
+<h3>Product Website</h3>
+<p>Designed to showcase or sell products professionally with clean layout and structure.</p>
+<div class="price">R5,000</div>
+<button class="add-btn" onclick="add('Product Website',5000)">Add to Cart</button>
+</div>
 
-    </div>
+</div>
 </section>
 
-<!-- WHY US -->
+<!-- LOGO -->
 <section>
-    <h2>Why Choose Cornerstone Digital?</h2>
+<h2>Logo & Branding</h2>
 
-    <div class="card">
-        We don’t just build websites — we build digital tools that help your business grow.
-    </div>
+<div class="grid">
 
-    <div class="card">
-        ✔ Clean modern design  
-        ✔ Fast loading websites  
-        ✔ Mobile-first approach  
-        ✔ SEO-ready structure  
-        ✔ Focus on real business results  
-    </div>
+<div class="card">
+<h3>Basic Logo Package</h3>
+<p>Includes 2 logo concepts, 1 revision, and final PNG/JPG files.</p>
+<div class="price">R600</div>
+<button class="add-btn" onclick="add('Basic Logo Package',600)">Add to Cart</button>
+</div>
 
-    <div class="card">
-        Every project is built with purpose, clarity, and long-term performance in mind.
-    </div>
+<div class="card">
+<h3>Professional Logo Package</h3>
+<p>Includes 3 concepts, 2 revisions, and polished final logo design.</p>
+<div class="price">R1,200</div>
+<button class="add-btn" onclick="add('Professional Logo Package',1200)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Premium Branding Package</h3>
+<p>Full brand identity including logo, slogan, colours, fonts, and social media kit.</p>
+<div class="price">R2,500</div>
+<button class="add-btn" onclick="add('Premium Branding Package',2500)">Add to Cart</button>
+</div>
+
+</div>
 </section>
 
-<!-- PROCESS -->
+<!-- HOSTING -->
 <section>
-    <h2>How It Works</h2>
+<h2>Hosting & Care</h2>
 
-    <div class="card">
-        <b>1. Consultation</b><br>
-        We understand your business, goals, and target audience.
-    </div>
+<div class="grid">
 
-    <div class="card">
-        <b>2. Design & Build</b><br>
-        We create a custom website tailored to your brand and needs.
-    </div>
+<div class="card">
+<h3>Basic Hosting</h3>
+<p>Includes hosting, domain management, SSL certificate, and uptime maintenance.</p>
+<div class="price">R250 / month</div>
+<button class="add-btn" onclick="add('Basic Hosting',250)">Add to Cart</button>
+</div>
 
-    <div class="card">
-        <b>3. Launch & Support</b><br>
-        Your website goes live and we ensure everything runs smoothly.
-    </div>
+<div class="card">
+<h3>Managed Hosting</h3>
+<p>Includes backups, updates, email support, and full hosting management.</p>
+<div class="price">R650 / month</div>
+<button class="add-btn" onclick="add('Managed Hosting',650)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Website Care Plan</h3>
+<p>Full monthly care including SEO checks, updates, priority support, and content updates.</p>
+<div class="price">R1,500 / month</div>
+<button class="add-btn" onclick="add('Website Care Plan',1500)">Add to Cart</button>
+</div>
+
+</div>
 </section>
 
-<!-- CTA -->
+<!-- UPDATES -->
 <section>
-    <div class="card">
-        <h2>Ready to Build Your Website?</h2>
-        If you're ready to grow your business online, let’s build something powerful together.
+<h2>Update Services</h2>
 
-        <br><br>
+<div class="grid">
 
-        <a href="contact.html" style="
-            display:inline-block;
-            padding:12px 20px;
-            background:#22c55e;
-            color:white;
-            text-decoration:none;
-            border-radius:8px;
-        ">
-            Get Started
-        </a>
-    </div>
+<div class="card">
+<h3>Logo Updates</h3>
+<p>Small edits and improvements to existing logo designs.</p>
+<div class="price">R250 / hour</div>
+<button class="add-btn" onclick="add('Logo Updates',250)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Website Updates</h3>
+<p>Content changes, fixes, and improvements to your website.</p>
+<div class="price">R350 / hour</div>
+<button class="add-btn" onclick="add('Website Updates',350)">Add to Cart</button>
+</div>
+
+</div>
 </section>
+
+<script>
+
+let cart = [];
+let total = 0;
+
+function add(name, price){
+    cart.push({name, price});
+    total += price;
+    update();
+}
+
+function removeItem(i){
+    total -= cart[i].price;
+    cart.splice(i,1);
+    update();
+}
+
+function update(){
+
+    document.getElementById("count").innerText = cart.length;
+    document.getElementById("total").innerText = total;
+
+    let html = "";
+
+    cart.forEach((i,index)=>{
+        html += `
+        <div class="cart-item">
+            ${i.name} - R${i.price}
+            <br>
+            <button onclick="removeItem(${index})" style="margin-top:8px;background:red;color:white;border:none;padding:5px 10px;border-radius:6px;">
+                Remove
+            </button>
+        </div>`;
+    });
+
+    document.getElementById("items").innerHTML = html;
+}
+
+/* QUIZ */
+function generatePlan(){
+
+    let q1 = document.getElementById("q1").value;
+    let q2 = document.getElementById("q2").value;
+    let q3 = document.getElementById("q3").value;
+    let q4 = document.getElementById("q4").value;
+
+    let score = 0;
+
+    if(q1==="small") score++;
+    if(q1==="growing") score+=2;
+    if(q1==="established") score+=3;
+
+    if(q2==="1") score++;
+    if(q2==="2") score+=2;
+    if(q2==="4") score+=3;
+
+    if(q3==="basic") score++;
+    if(q3==="full") score+=2;
+
+    if(q4==="basic") score++;
+    if(q4==="full") score+=2;
+
+    let result="";
+
+    if(score<=4){
+        result="Recommended: Starter Package";
+    } else if(score<=7){
+        result="Recommended: Growth Package";
+    } else {
+        result="Recommended: Premium Package";
+    }
+
+    document.getElementById("quizResult").innerText = result;
+}
+
+/* EMAIL + CART */
+document.getElementById("quoteForm").addEventListener("submit",function(){
+
+    let summary="";
+
+    cart.forEach(i=>{
+        summary += i.name + " - R" + i.price + "\n";
+    });
+
+    summary += "\nTOTAL: R"+total;
+
+    document.getElementById("quoteData").value = summary;
+});
+
+/* WHATSAPP */
+function sendWhatsApp(){
+
+    let msg="Hi I want:%0A%0A";
+
+    cart.forEach(i=>{
+        msg += "- "+i.name+" (R"+i.price+")%0A";
+    });
+
+    msg += "%0ATotal: R"+total;
+
+    window.open("https://wa.me/27636933391?text="+msg);
+}
+
+function toggleCart(){
+    let c=document.getElementById("cart");
+    c.style.display = c.style.display==="block"?"none":"block";
+}
+
+</script>
 
 </body>
 </html>
